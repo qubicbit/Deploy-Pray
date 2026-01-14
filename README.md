@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 # Deploy-Pray
 =======
+#
 # Simple HTML Website
 
 A basic 5-page HTML website project.
