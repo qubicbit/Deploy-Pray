@@ -1,185 +1,257 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Bookshop</title>
 
     <!-- 
-        STYLING FÖR STARTSIDAN
-        Denna CSS är skapad för att uppfylla issue: "Styling av startsidan".
-        Målet är att göra sidan mer lättläst, tydlig och visuellt organiserad,
-        utan att använda avancerad design eller externa CSS-filer.
+        CSS-TEMA MATCHAR contact.html
+        ---------------------------------------------------------
+        Detta stylesheet är baserat på samma design som contact.html
+        för att skapa en enhetlig och professionell känsla i hela
+        webbplatsen. Alla färger, skuggor, typsnitt och layoutprinciper
+        är synkroniserade med contact.html.
     -->
     <style>
 
         /* 
-            Grundinställningar för hela sidan:
-            - Arial är ett enkelt och lättläst typsnitt.
-            - Marginal runt hela sidan gör att innehållet inte ligger klistrat mot kanterna.
-            - Ljus bakgrundsfärg gör sidan mer behaglig att läsa.
+            GLOBAL RESET
+            -----------------------------------------------------
+            Tar bort standardmarginaler och padding från alla element.
+            box-sizing: border-box gör att padding och border räknas
+            in i elementets totala storlek, vilket gör layout enklare.
         */
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 20px; 
-            background-color: #f9f9f9;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         /* 
-            Rubrikerna får en mörkare färg för bättre kontrast.
-            Detta gör att användaren snabbt ser vad som är viktigt.
+            BODY-STYLING
+            -----------------------------------------------------
+            - Samma typsnitt som contact.html (Segoe UI)
+            - Ljus bakgrund (#f5f5f5)
+            - Padding runt hela sidan för luft
         */
-        h1, h2 {
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
         }
 
         /* 
-            Standardtexten får en något ljusare färg än rubrikerna.
-            Det skapar en tydlig hierarki i texten.
+            CONTAINER
+            -----------------------------------------------------
+            - Maxbredd 1200px för att centrera innehållet
+            - Vit bakgrund
+            - Rundade hörn
+            - Kraftig skugga för modern look
+            - overflow: hidden för att rundade hörn ska fungera
         */
-        p {
-            color: #444;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
         /* 
-            Navigationens placering:
-            - Extra marginaler ovanför och under gör att den inte klibbar ihop med annat innehåll.
+            NAVIGATION
+            -----------------------------------------------------
+            - Samma mörka bakgrund (#1a1a1a)
+            - Centrering av länkar
+            - Vit text
+            - Hover-effekt med blå färg (#4a90e2)
         */
         nav {
-            margin-top: 20px;
-            margin-bottom: 20px;
+            background: #1a1a1a;
+            padding: 15px 30px;
+            text-align: center;
         }
 
-        /* 
-            Länkarna i navigationen:
-            - Marginal mellan länkarna gör dem lättare att klicka på.
-            - Ingen understrykning för ett renare utseende.
-            - Färg och fetstil gör dem tydliga som navigationsval.
-        */
-        nav a { 
-            margin-right: 15px; 
-            text-decoration: none;
-            color: #0066cc;
-            font-weight: bold;
-        }
-
-        /* 
-            Hover-effekt:
-            - Understrykning visas när musen är över länken.
-            - Detta ger användaren feedback och förbättrar användbarheten.
-        */
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* 
-            Bildstil:
-            - En tunn ram runt bilden gör att den ser mer "inramad" och professionell ut.
-            - Rundade hörn gör bilden mjukare visuellt.
-        */
-        img { 
-            border: 1px solid #ccc; 
-            border-radius: 4px;
-        }
-
-        /* 
-            Knappstil:
-            - Padding gör knappen större och lättare att klicka på.
-            - Blå bakgrundsfärg gör att knappen sticker ut som en "call to action".
-            - Rundade hörn gör knappen mer modern.
-        */
-        button { 
-            padding: 10px 20px; 
-            cursor: pointer; 
-            background-color: #0066cc;
+        nav a {
             color: white;
-            border: none;
-            border-radius: 4px;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a90e2;
         }
 
         /* 
-            Hover-effekt för knappen:
-            - Färgen blir mörkare när musen är över.
-            - Detta ger användaren visuell feedback.
+            HEADER
+            -----------------------------------------------------
+            - Samma blågrå bakgrund (#2c3e50)
+            - Vit text
+            - Stor rubrik
+            - Används för att skapa en tydlig sidstart
         */
-        button:hover {
-            background-color: #004999;
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
         }
 
         /* 
-            Footer-stil:
-            - Mindre textstorlek eftersom footern inte är huvudfokus.
-            - Grå färg gör den diskret men fortfarande läsbar.
+            CONTENT-LAYOUT
+            -----------------------------------------------------
+            - Två kolumner (vänster: bok, höger: text)
+            - Samma grid som contact.html
         */
-        footer { 
-            margin-top: 40px; 
-            color: #555; 
-            font-size: 0.9em;
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px 30px;
+            align-items: center;
         }
+
+        /* 
+            BOOK-INFO BOX
+            -----------------------------------------------------
+            - Samma stil som i contact.html
+            - Rundade hörn, skugga, border
+            - Hover-effekt som lyfter boxen
+        */
+        .book-info {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid #2c3e50;
+            transition: transform 0.3s ease;
+        }
+
+        .book-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-info img {
+            border-radius: 10px;
+            border: 2px solid #2c3e50;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .book-info img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 
+            BUTTON
+            -----------------------------------------------------
+            - Samma färger som contact.html
+            - Hover-effekt med lyft
+        */
+        .btn {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #34495e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 
+            RESPONSIVITET
+            -----------------------------------------------------
+            - Vid mindre skärmar blir layouten en kolumn
+        */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
     <!-- 
-        Huvudrubrik för sidan.
-        Detta är det första användaren ser och visar tydligt vilken sida de är på.
+        CONTAINER
+        ---------------------------------------------------------
+        Allt innehåll ligger i denna box för att matcha contact.html.
     -->
-    <h1>Home</h1>
+    <div class="container">
 
-    <!-- 
-        Sektion som välkomnar användaren.
-        Detta ger en introduktion till vad webshoppen handlar om.
-    -->
-    <h2>Welcome to the Bookshop</h2>
-    <p>Your place for great stories and exciting reads.</p>
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="checkout.html">Checkout</a> |
+            <a href="product.html">Product</a> |
+            <a href="about.html">About</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
 
-    <!-- 
-        Kort text som presenterar huvudprodukten.
-        Detta gör att användaren förstår vad bilden nedanför föreställer.
-    -->
-    <p>Check out our featured book of the month!</p>
+        <!-- Header -->
+        <div class="header">
+            <h1>Welcome to the Bookshop</h1>
+            <p>Your place for great stories and exciting reads</p>
+        </div>
 
-    <!-- 
-        Bild som länkar till produktsidan.
-        - Bilden fungerar som en visuell "ingång" till produkten.
-        - Länken gör att användaren intuitivt kan klicka på bilden.
-    -->
-    <a href="product.html">
-        <img src="images/image1_bok_html.jpg" alt="Book cover" width="400" height="400">
-    </a>
+        <!-- Main Content -->
+        <div class="content">
 
-    <br><br>
+            <!-- Left side: Featured Book -->
+            <div class="book-info">
+                <h2>Featured Book</h2>
+                <img src="images/image1_bok_html.jpg" alt="Book Cover" width="300" height="300" />
+                <a href="product.html" class="btn">View Product</a>
+            </div>
 
-    <!-- 
-        Knapp som leder till produktsidan.
-        - Detta är en tydlig call-to-action.
-        - Knappen är mer synlig än en vanlig textlänk.
-    -->
-    <a href="product.html">
-        <button>View Product</button>
-    </a>
+            <!-- Right side: Intro text -->
+            <div>
+                <h2>Discover Your Next Favorite Book</h2>
+                <p>
+                    Explore our collection of exciting and inspiring books. 
+                    Whether you're looking for knowledge, entertainment, or creativity, 
+                    our webshop has something for everyone.
+                </p>
+                <p>
+                    Start your journey by checking out our featured book of the month, 
+                    or browse through our full product page.
+                </p>
+            </div>
 
-    <!-- 
-        Navigationsmeny som länkar till alla sidor i projektet.
-        Detta gör att användaren enkelt kan röra sig mellan sidorna.
-    -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="product.html">Product</a>
-        <a href="checkout.html">Checkout</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+        </div>
 
-    <!-- 
-        Footer längst ner på sidan.
-        - Visar upphovsrätt.
-        - Ger sidan ett naturligt avslut.
-    -->
-    <footer>
-        <p>&copy; 2024 Bookshop</p>
-    </footer>
+    </div>
 
 </body>
 </html>
