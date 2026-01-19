@@ -5,46 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
+    <!-- 
+        STYLING FÖR STARTSIDAN
+        Denna CSS är skapad för att uppfylla issue: "Styling av startsidan".
+        Målet är att göra sidan mer lättläst, tydlig och visuellt organiserad,
+        utan att använda avancerad design eller externa CSS-filer.
+    -->
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        nav a { margin-right: 10px; }
-        img { border: 1px solid #ccc; }
-        button { padding: 10px 20px; cursor: pointer; }
-        footer { margin-top: 40px; color: #555; }
+
+        /* 
+            Grundinställningar för hela sidan:
+            - Arial är ett enkelt och lättläst typsnitt.
+            - Marginal runt hela sidan gör att innehållet inte ligger klistrat mot kanterna.
+            - Ljus bakgrundsfärg gör sidan mer behaglig att läsa.
+        */
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #f9f9f9;
+        }
+
+        /* 
+            Rubrikerna får en mörkare färg för bättre kontrast.
+            Detta gör att användaren snabbt ser vad som är viktigt.
+        */
+        h1, h2 {
+            color: #333;
+        }
+
+        /* 
+            Standardtexten får en något ljusare färg än rubrikerna.
+            Det skapar en tydlig hierarki i texten.
+        */
+        p {
+            color: #444;
+        }
+
+        /* 
+            Navigationens placering:
+            - Extra marginaler ovanför och under gör att den inte klibbar ihop med annat innehåll.
+        */
+        nav {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 
+            Länkarna i navigationen:
+            - Marginal mellan länkarna gör dem lättare att klicka på.
+            - Ingen understrykning för ett renare utseende.
+            - Färg och fetstil gör dem tydliga som navigationsval.
+        */
+        nav a { 
+            margin-right: 15px; 
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        /* 
+            Hover-effekt:
+            - Understrykning visas när musen är över länken.
+            - Detta ger användaren feedback och förbättrar användbarheten.
+        */
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* 
+            Bildstil:
+            - En tunn ram runt bilden gör att den ser mer "inramad" och professionell ut.
+            - Rundade hörn gör bilden mjukare visuellt.
+        */
+        img { 
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+        }
+
+        /* 
+            Knappstil:
+            - Padding gör knappen större och lättare att klicka på.
+            - Blå bakgrundsfärg gör att knappen sticker ut som en "call to action".
+            - Rundade hörn gör knappen mer modern.
+        */
+        button { 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        /* 
+            Hover-effekt för knappen:
+            - Färgen blir mörkare när musen är över.
+            - Detta ger användaren visuell feedback.
+        */
+        button:hover {
+            background-color: #004999;
+        }
+
+        /* 
+            Footer-stil:
+            - Mindre textstorlek eftersom footern inte är huvudfokus.
+            - Grå färg gör den diskret men fortfarande läsbar.
+        */
+        footer { 
+            margin-top: 40px; 
+            color: #555; 
+            font-size: 0.9em;
+        }
     </style>
 </head>
 
 <body>
 
-<h1>Home</h1>
+    <!-- 
+        Huvudrubrik för sidan.
+        Detta är det första användaren ser och visar tydligt vilken sida de är på.
+    -->
+    <h1>Home</h1>
 
-<h2>Welcome to the Bookshop</h2>
-<p>Your place for great stories and exciting reads.</p>
+    <!-- 
+        Sektion som välkomnar användaren.
+        Detta ger en introduktion till vad webshoppen handlar om.
+    -->
+    <h2>Welcome to the Bookshop</h2>
+    <p>Your place for great stories and exciting reads.</p>
 
-<p>Check out our featured book of the month!</p>
+    <!-- 
+        Kort text som presenterar huvudprodukten.
+        Detta gör att användaren förstår vad bilden nedanför föreställer.
+    -->
+    <p>Check out our featured book of the month!</p>
 
-<a href="product.html">
-    <img src="images/image1_bok_html.jpg" alt="Book cover" width="400" height="400">
-</a>
+    <!-- 
+        Bild som länkar till produktsidan.
+        - Bilden fungerar som en visuell "ingång" till produkten.
+        - Länken gör att användaren intuitivt kan klicka på bilden.
+    -->
+    <a href="product.html">
+        <img src="images/image1_bok_html.jpg" alt="Book cover" width="400" height="400">
+    </a>
 
-<br><br>
+    <br><br>
 
+    <!-- 
+        Knapp som leder till produktsidan.
+        - Detta är en tydlig call-to-action.
+        - Knappen är mer synlig än en vanlig textlänk.
+    -->
+    <a href="product.html">
+        <button>View Product</button>
+    </a>
 
-<a href="product.html">
-    <button>View Product</button>
-</a>
+    <!-- 
+        Navigationsmeny som länkar till alla sidor i projektet.
+        Detta gör att användaren enkelt kan röra sig mellan sidorna.
+    -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="product.html">Product</a> |
-    <a href="checkout.html">Checkout</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-</nav>
-
-<footer>
-    <p>&copy; 2024 Bookshop</p>
-</footer>
+    <!-- 
+        Footer längst ner på sidan.
+        - Visar upphovsrätt.
+        - Ger sidan ett naturligt avslut.
+    -->
+    <footer>
+        <p>&copy; 2024 Bookshop</p>
+    </footer>
 
 </body>
 </html>
