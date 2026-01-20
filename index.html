@@ -1,24 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Bookshop</title>
+
+    <!-- 
+        CSS-TEMA MATCHAR contact.html
+        ---------------------------------------------------------
+        Detta stylesheet är baserat på samma design som contact.html
+        för att skapa en enhetlig och professionell känsla i hela
+        webbplatsen. Alla färger, skuggor, typsnitt och layoutprinciper
+        är synkroniserade med contact.html.
+    -->
+    <style>
+
+        /* 
+            GLOBAL RESET
+            -----------------------------------------------------
+            Tar bort standardmarginaler och padding från alla element.
+            box-sizing: border-box gör att padding och border räknas
+            in i elementets totala storlek, vilket gör layout enklare.
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 
+            BODY-STYLING
+            -----------------------------------------------------
+            - Samma typsnitt som contact.html (Segoe UI)
+            - Ljus bakgrund (#f5f5f5)
+            - Padding runt hela sidan för luft
+        */
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 
+            CONTAINER
+            -----------------------------------------------------
+            - Maxbredd 1200px för att centrera innehållet
+            - Vit bakgrund
+            - Rundade hörn
+            - Kraftig skugga för modern look
+            - overflow: hidden för att rundade hörn ska fungera
+        */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* 
+            NAVIGATION
+            -----------------------------------------------------
+            - Samma mörka bakgrund (#1a1a1a)
+            - Centrering av länkar
+            - Vit text
+            - Hover-effekt med blå färg (#4a90e2)
+        */
+        nav {
+            background: #1a1a1a;
+            padding: 15px 30px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a90e2;
+        }
+
+        /* 
+            HEADER
+            -----------------------------------------------------
+            - Samma blågrå bakgrund (#2c3e50)
+            - Vit text
+            - Stor rubrik
+            - Används för att skapa en tydlig sidstart
+        */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* 
+            CONTENT-LAYOUT
+            -----------------------------------------------------
+            - Två kolumner (vänster: bok, höger: text)
+            - Samma grid som contact.html
+        */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px 30px;
+            align-items: center;
+        }
+
+        /* 
+            BOOK-INFO BOX
+            -----------------------------------------------------
+            - Samma stil som i contact.html
+            - Rundade hörn, skugga, border
+            - Hover-effekt som lyfter boxen
+        */
+        .book-info {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid #2c3e50;
+            transition: transform 0.3s ease;
+        }
+
+        .book-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-info img {
+            border-radius: 10px;
+            border: 2px solid #2c3e50;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .book-info img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 
+            BUTTON
+            -----------------------------------------------------
+            - Samma färger som contact.html
+            - Hover-effekt med lyft
+        */
+        .btn {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #34495e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 
+            RESPONSIVITET
+            -----------------------------------------------------
+            - Vid mindre skärmar blir layouten en kolumn
+        */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
-<h1>Home</h1>
-<p>Welcome to this page (Home)</p>
-<a href="https://www.google.com/imghp" target="_blank">
-    <img src="images/image1.jpg" alt="Small image" width="150" height="150">
-</a>
-<!-- Links to all 5 pages. -->
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="checkout.html">Products</a> |
-    <a href="product.html">Product</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-</nav>
+
+    <!-- 
+        CONTAINER
+        ---------------------------------------------------------
+        Allt innehåll ligger i denna box för att matcha contact.html.
+    -->
+    <div class="container">
+
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="checkout.html">Checkout</a> |
+            <a href="product.html">Product</a> |
+            <a href="about.html">About</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>Welcome to the Bookshop</h1>
+            <p>Your place for great stories and exciting reads</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+
+            <!-- Left side: Featured Book -->
+            <div class="book-info">
+                <h2>Featured Book</h2>
+                <img src="images/image1_bok_html.jpg" alt="Book Cover" width="300" height="300" />
+                <a href="product.html" class="btn">View Product</a>
+            </div>
+
+            <!-- Right side: Intro text -->
+            <div>
+                <h2>Discover Your Next Favorite Book</h2>
+                <p>
+                    Explore our collection of exciting and inspiring books. 
+                    Whether you're looking for knowledge, entertainment, or creativity, 
+                    our webshop has something for everyone.
+                </p>
+                <p>
+                    Start your journey by checking out our featured book of the month, 
+                    or browse through our full product page.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+<!-- 
+    JOKE SECTION
+    ---------------------------------------------------------
+    Denna sektion lägger till en interaktiv funktion på startsidan.
+    Användaren kan hämta ett slumpmässigt skämt från ett offentligt API.
+    Designen följer samma tema som contact.html (skuggor, färger, rundade hörn).
+-->
+<div class="joke-section">
+
+    <!-- Rubrik för sektionen -->
+    <h2>Need a Laugh?</h2>
+
+    <!-- 
+        Här visas skämtet. 
+        Vi använder en separat box med samma stil som book-info
+        för att hålla designen konsekvent.
+    -->
+    <div class="joke-box" id="joke">
+        <!-- Skämtet laddas automatiskt via JavaScript -->
+        Loading joke...
+    </div>
+
+    <!-- 
+        Knapp för att hämta ett nytt skämt.
+        Samma stil som andra knappar på sidan.
+    -->
+    <button class="btn" onclick="loadJoke()">Get a new joke</button>
+</div>
+
+<style>
+    /* 
+        JOKE SECTION STYLING
+        ---------------------------------------------------------
+        Matchar contact.html: rundade hörn, skuggor, blågrå färger.
+    */
+    .joke-section {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .joke-section h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    /* Box där skämtet visas */
+    .joke-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #2c3e50;
+        text-align: center;
+        font-size: 1.2em;
+        min-height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script>
+    // 
+    // API-FUNKTION FÖR ATT HÄMTA SKÄMT
+    // ---------------------------------------------------------
+    // Denna funktion hämtar ett slumpmässigt skämt från
+    // Official Joke API och visar det i joke-boxen.
+    //
+
+    // Hämta elementet där skämtet ska visas
+    const jokeElement = document.getElementById("joke");
+
+    // Funktion som hämtar ett nytt skämt
+    function loadJoke() {
+
+        // Visa laddningstext medan API:et svarar
+        jokeElement.textContent = "Loading joke...";
+
+        // Anropa API:et
+        fetch("https://official-joke-api.appspot.com/random_joke")
+            .then(function(response) {
+                // Konvertera API-svaret till JSON
+                return response.json();
+            })
+            .then(function(joke) {
+                // Visa skämtet i boxen
+                jokeElement.textContent = joke.setup + " — " + joke.punchline;
+            })
+            .catch(function() {
+                // Om API:et inte svarar
+                jokeElement.textContent = "Could not load joke 😢";
+            });
+    }
+
+    // Ladda ett skämt automatiskt när sidan öppnas
+    loadJoke();
+</script>
+
 </body>
 </html>
-
