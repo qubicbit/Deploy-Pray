@@ -252,6 +252,108 @@
         </div>
 
     </div>
+<!-- 
+    JOKE SECTION
+    ---------------------------------------------------------
+    Denna sektion lägger till en interaktiv funktion på startsidan.
+    Användaren kan hämta ett slumpmässigt skämt från ett offentligt API.
+    Designen följer samma tema som contact.html (skuggor, färger, rundade hörn).
+-->
+<div class="joke-section">
+
+    <!-- Rubrik för sektionen -->
+    <h2>Need a Laugh?</h2>
+
+    <!-- 
+        Här visas skämtet. 
+        Vi använder en separat box med samma stil som book-info
+        för att hålla designen konsekvent.
+    -->
+    <div class="joke-box" id="joke">
+        <!-- Skämtet laddas automatiskt via JavaScript -->
+        Loading joke...
+    </div>
+
+    <!-- 
+        Knapp för att hämta ett nytt skämt.
+        Samma stil som andra knappar på sidan.
+    -->
+    <button class="btn" onclick="loadJoke()">Get a new joke</button>
+</div>
+
+<style>
+    /* 
+        JOKE SECTION STYLING
+        ---------------------------------------------------------
+        Matchar contact.html: rundade hörn, skuggor, blågrå färger.
+    */
+    .joke-section {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .joke-section h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    /* Box där skämtet visas */
+    .joke-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #2c3e50;
+        text-align: center;
+        font-size: 1.2em;
+        min-height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script>
+    // 
+    // API-FUNKTION FÖR ATT HÄMTA SKÄMT
+    // ---------------------------------------------------------
+    // Denna funktion hämtar ett slumpmässigt skämt från
+    // Official Joke API och visar det i joke-boxen.
+    //
+
+    // Hämta elementet där skämtet ska visas
+    const jokeElement = document.getElementById("joke");
+
+    // Funktion som hämtar ett nytt skämt
+    function loadJoke() {
+
+        // Visa laddningstext medan API:et svarar
+        jokeElement.textContent = "Loading joke...";
+
+        // Anropa API:et
+        fetch("https://official-joke-api.appspot.com/random_joke")
+            .then(function(response) {
+                // Konvertera API-svaret till JSON
+                return response.json();
+            })
+            .then(function(joke) {
+                // Visa skämtet i boxen
+                jokeElement.textContent = joke.setup + " — " + joke.punchline;
+            })
+            .catch(function() {
+                // Om API:et inte svarar
+                jokeElement.textContent = "Could not load joke 😢";
+            });
+    }
+
+    // Ladda ett skämt automatiskt när sidan öppnas
+    loadJoke();
+</script>
 
 </body>
 </html>
