@@ -1,267 +1,318 @@
+/* =========================================================
+   GLOBAL RESET & BASE STYLING
+   ---------------------------------------------------------
+   Tar bort webbläsarens standardmarginaler och skapar en
+   konsekvent grund för hela webbplatsen.
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: #f5f5f5;
-        min-height: 100vh;
-        padding: 20px;
-      }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-      }
-      nav {
-        background: #1a1a1a;
-        padding: 15px 30px;
-        text-align: center;
-      }
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-      nav a:hover {
-        color: #4a90e2;
-      }
-      .header {
-        background: #2c3e50;
-        color: white;
-        padding: 40px 30px;
-        text-align: center;
-      }
-      .header h1 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-      }
-      .header p {
-        font-size: 1.2em;
-        opacity: 0.9;
-      }
-      .content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        padding: 40px 30px;
-        align-items: start;
-      }
-      .book-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-      }
-      .book-section h2 {
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-size: 2em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 600;
-        text-align: center;
-        width: auto;
-        align-self: center;
-      }
-      .book-info .book-image img {
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s;
-        border: 2px solid #2c3e50;
-      }
-      .book-info .book-image img:hover {
-        transform: scale(1.05);
-      }
-      .book-info {
-        background: linear-gradient(145deg, #ffffff, #f0f0f0);
-        padding: 40px;
-        border-radius: 15px;
-        margin: 0;
-        text-align: center;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        border: 3px solid #2c3e50;
-        min-width: 350px;
-        transition: transform 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .book-info:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-      }
-      .book-info h3 {
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-size: 2.2em;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        position: relative;
-        padding-bottom: 15px;
-        order: 1;
-      }
-      .book-info h3::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: #4a90e2;
-        border-radius: 2px;
-      }
-      .book-info p {
-        margin-bottom: 10px;
-        line-height: 1.8;
-        order: 2;
-      }
-      .book-info .book-image {
-        order: 3;
-        margin: 20px 0 0 0;
-      }
-      .author {
-        font-weight: 600;
-        color: #4a90e2;
-        font-size: 1.3em;
-        margin-top: 15px;
-        font-style: italic;
-      }
-      .author::before {
-        content: "✍️ ";
-        margin-right: 8px;
-      }
-      .contact-section {
-        background: #f8f9fa;
-        padding: 30px;
-        border-radius: 10px;
-      }
-      .contact-section h2 {
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-size: 2em;
-      }
-      .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-      .form-group {
-        display: flex;
-        flex-direction: column;
-      }
-      .form-group label {
-        margin-bottom: 5px;
-        color: #2a3d50;
-        font-weight: 500;
-      }
-      .form-group input,
-      .form-group textarea {
-        padding: 12px;
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        font-size: 1em;
-        transition: border-color 0.3s;
-      }
-      .form-group input:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: #4a90e2;
-      }
-      .form-group textarea {
-        min-height: 150px;
-        resize: vertical;
-      }
-      .submit-btn {
-        background: #2c3e50;
-        color: white;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.1em;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-      .submit-btn:hover {
-        background: #34495e;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-      .contact-info {
-        margin-top: 30px;
-        padding: 20px;
-        background: white;
-        border-radius: 10px;
-      }
-      .contact-info h3 {
-        color: #2c3e50;
-        margin-bottom: 15px;
-      }
-      .contact-info p {
-        margin-bottom: 10px;
-      }
-      @media (max-width: 768px) {
-        .content {
-          grid-template-columns: 1fr;
-        }
-        .header h1 {
-          font-size: 1.8em;
-        }
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f5f5;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* =========================================================
+   NAVIGATION
+   ---------------------------------------------------------
+   Delas av alla sidor. Mörk bakgrund + vit text.
+========================================================= */
+nav {
+    background: #1a1a1a;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #4a90e2;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ---------------------------------------------------------
+   Vit box med rundade hörn och skugga. Används på alla sidor.
+========================================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* =========================================================
+   HEADER
+   ---------------------------------------------------------
+   Blågrå header som matchar contact.html.
+========================================================= */
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* =========================================================
+   GRID LAYOUT (ANVÄNDS PÅ FLERA SIDOR)
+========================================================= */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px 30px;
+    align-items: start;
+}
+
+/* =========================================================
+   BOOK SECTION (INDEX)
+========================================================= */
+.book-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* Book info card */
+.book-info {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 3px solid #2c3e50;
+    min-width: 350px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.book-info h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.book-info h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #4a90e2;
+    border-radius: 2px;
+}
+
+.book-info p {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.book-info .book-image img {
+    border-radius: 10px;
+    border: 2px solid #2c3e50;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.book-info .book-image img:hover {
+    transform: scale(1.05);
+}
+
+.author {
+    font-weight: 600;
+    color: #4a90e2;
+    font-size: 1.3em;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.author::before {
+    content: "✍️ ";
+    margin-right: 8px;
+}
+
+/* =========================================================
+   CONTACT PAGE
+========================================================= */
+.contact-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.contact-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    color: #2a3d50;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover {
+    background: #34495e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   JOKE SECTION (INDEX)
+========================================================= */
+.joke-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.joke-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.joke-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #2c3e50;
+    text-align: center;
+    font-size: 1.2em;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+/* =========================================================
+   GLOBAL BUTTON STYLE (used for joke button, product button etc.)
+========================================================= */
+.btn {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #34495e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
 
-    
-    /* 
-        JOKE SECTION STYLING
-        ---------------------------------------------------------
-        Matchar contact.html: rundade hörn, skuggor, blågrå färger.
-    */
-    .joke-section {
-        background: #f8f9fa;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+.help {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
 
-    .joke-section h2 {
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-size: 2em;
-        text-align: center;
-    }
-
-    /* Box där skämtet visas */
-    .joke-box {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        border: 2px solid #2c3e50;
-        text-align: center;
-        font-size: 1.2em;
-        min-height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    
-
-      }
-
-
-      .comment-box {
+.comment-box {
     background: #ffffff;
     padding: 20px;
     max-width: 500px;
@@ -269,20 +320,15 @@
     border-radius: 8px;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
 
-input, textarea {
-width: 100%;
-padding: 8px;
-margin-top: 5px;
-}
-.help {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
+    .header h1 {
+        font-size: 1.8em;
+    }
 }
