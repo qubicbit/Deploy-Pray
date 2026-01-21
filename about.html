@@ -4,21 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
+
+    <!-- Länkar till din globala CSS -->
+    <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-<h1>About</h1>
-<p>Welcome to this page (About)</p>
-<a href="https://www.google.com/imghp" target="_blank">
-    <img src="images/image4.jpg" alt="Small image" width="150" height="150">
-</a>
-<!-- Links to all 5 pages. -->
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="checkout.html">Products</a> |
-    <a href="product.html">Product</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-</nav>
+
+    <!-- Navigation (samma på alla sidor) -->
+    <nav class="navbar">
+        <a href="index.html">Home</a> |
+        <a href="product.html">Product</a> |
+        <a href="checkout.html">Checkout</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Hela sidans innehåll ligger i container -->
+    <div class="container">
+
+        <!-- Header-sektion -->
+        <div class="header">
+            <h1>About</h1>
+            <p>Welcome to the About page</p>
+        </div>
+
+        <!-- Innehåll -->
+        <div class="content" style="grid-template-columns: 1fr;">
+
+            <!-- Bildsektion -->
+            <div style="text-align:center;">
+                <a href="https://www.google.com/imghp" target="_blank">
+                    <img src="images/image1_bok_html.jpg" 
+                         alt="Book image" 
+                         width="200" 
+                         height="200"
+                         style="border-radius:10px; border:2px solid #2c3e50;">
+                </a>
+            </div>
+
+            <!-- Textsektion -->
+            <div class="help">
+                <p>
+                    Vi skapade BookShop med en enkel idé: att göra det lättare för människor att upptäcka, läsa och dela sin kärlek till litteratur. 
+                    Oavsett om du föredrar klassiker, fantasy, deckare, romance eller facklitteratur vill vi erbjuda något för alla läsare.
+                </p>
+                <p>
+                    Vår webbplats samlar böcker från olika genrer och författare för att inspirera både nya och erfarna läsare. 
+                    Vi tror att böcker inte bara är underhållning, utan också ett sätt att lära sig, växa och se världen ur nya perspektiv.
+                </p>
+                <p>
+                    Bakom BookShop står ett team av bokentusiaster som brinner för berättelser och kunskap. 
+                    Vårt mål är att skapa en användarvänlig och inspirerande bokplattform där läsning står i centrum.
+                </p>
+                <p>
+                    Tack för att du besöker oss – vi hoppas att du hittar din nästa favoritbok hos oss.
+                </p>
+            </div>
+
+            <!-- Kommentarformulär -->
+            <div class="comment-box">
+                <h3>Lämna en kommentar</h3>
+                <form>
+                    <label for="name">Namn</label>
+                    <input type="text" id="name" name="name" placeholder="Ditt namn" required>
+
+                    <label for="comment">Kommentar</label>
+                    <textarea id="comment" name="comment" rows="5" placeholder="Skriv din kommentar här..." required></textarea>
+
+                    <button class="submit-btn" type="submit">Skicka kommentar</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 </html>
-

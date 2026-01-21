@@ -1,24 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Bookshop</title>
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- 
+        CSS-TEMA MATCHAR contact.html
+        ---------------------------------------------------------
+        Detta stylesheet är baserat på samma design som contact.html
+        för att skapa en enhetlig och professionell känsla i hela
+        webbplatsen. Alla färger, skuggor, typsnitt och layoutprinciper
+        är synkroniserade med contact.html.
+    -->
+    
 </head>
+
 <body>
-<h1>Home</h1>
-<p>Welcome to this page (Home)</p>
-<a href="https://www.google.com/imghp" target="_blank">
-    <img src="images/image1.jpg" alt="Small image" width="150" height="150">
-</a>
-<!-- Links to all 5 pages. -->
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="checkout.html">Products</a> |
-    <a href="product.html">Product</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-</nav>
+
+    <!-- 
+        CONTAINER
+        ---------------------------------------------------------
+        Allt innehåll ligger i denna box för att matcha contact.html.
+    -->
+    <div class="container">
+
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="product.html">Product</a> |
+            <a href="checkout.html">Checkout</a> |
+            <a href="about.html">About</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>Welcome to the Bookshop</h1>
+            <p>Your place for great stories and exciting reads</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+
+            <!-- Left side: Featured Book -->
+            <div class="book-info">
+                <h2>Featured Book</h2>
+                <img src="images/image1_bok_html.jpg" alt="Book Cover" width="300" height="300" />
+                <a href="product.html" class="btn">View Product</a>
+            </div>
+
+            <!-- Right side: Intro text -->
+            <div>
+                <h2>Discover Your Next Favorite Book</h2>
+                <p>
+                    Explore our collection of exciting and inspiring books. 
+                    Whether you're looking for knowledge, entertainment, or creativity, 
+                    our webshop has something for everyone.
+                </p>
+                <p>
+                    Start your journey by checking out our featured book of the month, 
+                    or browse through our full product page.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+<!-- 
+    JOKE SECTION
+    ---------------------------------------------------------
+    Denna sektion lägger till en interaktiv funktion på startsidan.
+    Användaren kan hämta ett slumpmässigt skämt från ett offentligt API.
+    Designen följer samma tema som contact.html (skuggor, färger, rundade hörn).
+-->
+<div class="joke-section">
+
+    <!-- Rubrik för sektionen -->
+    <h2>Need a Laugh?</h2>
+
+    <!-- 
+        Här visas skämtet. 
+        Vi använder en separat box med samma stil som book-info
+        för att hålla designen konsekvent.
+    -->
+    <div class="joke-box" id="joke">
+        <!-- Skämtet laddas automatiskt via JavaScript -->
+        Loading joke...
+    </div>
+
+    <!-- 
+        Knapp för att hämta ett nytt skämt.
+        Samma stil som andra knappar på sidan.
+    -->
+    <button class="btn" onclick="loadJoke()">Get a new joke</button>
+</div>
+
+<style>
+    /* 
+        JOKE SECTION STYLING
+        ---------------------------------------------------------
+        Matchar contact.html: rundade hörn, skuggor, blågrå färger.
+    */
+    .joke-section {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .joke-section h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    /* Box där skämtet visas */
+    .joke-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #2c3e50;
+        text-align: center;
+        font-size: 1.2em;
+        min-height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script>
+    // 
+    // API-FUNKTION FÖR ATT HÄMTA SKÄMT
+    // ---------------------------------------------------------
+    // Denna funktion hämtar ett slumpmässigt skämt från
+    // Official Joke API och visar det i joke-boxen.
+    //
+
+    // Hämta elementet där skämtet ska visas
+    const jokeElement = document.getElementById("joke");
+
+    // Funktion som hämtar ett nytt skämt
+    function loadJoke() {
+
+        // Visa laddningstext medan API:et svarar
+        jokeElement.textContent = "Loading joke...";
+
+        // Anropa API:et
+        fetch("https://official-joke-api.appspot.com/random_joke")
+            .then(function(response) {
+                // Konvertera API-svaret till JSON
+                return response.json();
+            })
+            .then(function(joke) {
+                // Visa skämtet i boxen
+                jokeElement.textContent = joke.setup + " — " + joke.punchline;
+            })
+            .catch(function() {
+                // Om API:et inte svarar
+                jokeElement.textContent = "Could not load joke 😢";
+            });
+    }
+
+    // Ladda ett skämt automatiskt när sidan öppnas
+    loadJoke();
+</script>
+
 </body>
 </html>
-

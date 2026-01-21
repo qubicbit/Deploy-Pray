@@ -3,22 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Checkout</title>
+
+    <!-- 
+        Extern CSS-fil för styling av checkout-sidan.
+        Detta följer uppgiftens krav på att använda en separat .css-fil.
+    -->
+    <link rel="stylesheet" href="/css/main.css">
 </head>
+
 <body>
-<h1>Products</h1>
-<p>Welcome to this page (Products)</p>
-<a href="https://www.google.com/imghp" target="_blank">
-    <img src="images/image2.jpg" alt="Small image" width="150" height="150">
-</a>
-<!-- Links to all 5 pages. -->
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="checkout.html">Products</a> |
-    <a href="product.html">Product</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-</nav>
+
+    <!-- Navigation (samma struktur som övriga sidor) -->
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="product.html">Product</a> |
+        <a href="checkout.html">Checkout</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Container som håller ihop innehållet -->
+    <div class="container">
+
+        <!-- Header-sektion -->
+        <header class="header">
+            <h1>Checkout</h1>
+            <p>Complete your purchase below</p>
+        </header>
+
+        <!-- Huvudinnehåll -->
+        <div class="content">
+
+            <!-- Order-sammanfattning -->
+            <section class="order-summary">
+                <h2>Your Order</h2>
+                <p>Book: HTML & CSS</p>
+                <p>Price: $29.99</p>
+            </section>
+
+            <!-- Checkout-formulär -->
+            <section class="checkout-form">
+                <h2>Billing Information</h2>
+
+                <form>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+
+                    <label for="address">Address</label>
+                    <input type="text" id="address" required>
+
+                    <label for="card">Card Number</label>
+                    <input type="text" id="card" required>
+
+                    <button type="submit" class="btn">Complete Purchase</button>
+                </form>
+            </section>
+
+        </div>
+
+    </div>
+
 </body>
 </html>
-

@@ -1,24 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-</head>
-<body>
-<h1>Contact</h1>
-<p>Welcome to this page (Contact)</p>
-<a href="https://www.google.com/imghp" target="_blank">
-    <img src="images/image5.jpg" alt="Small image" width="150" height="150">
-</a>
-<!-- Links to all 5 pages. -->
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="checkout.html">Products</a> |
-    <a href="product.html">Product</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-</nav>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - HTML CSS Book by Thomas A. Fuwell</title>
+    <link rel="stylesheet" href="css/main.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navigation -->
+      <nav>
+        <a href="index.html">Home</a> |
+        <a href="product.html">Product</a> |
+        <a href="checkout.html">Checkout</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Header -->
+      <div class="header">
+        <h1>Contact Us</h1>
+        <p>Get in touch about "HTML CSS" by Thomas A. Fuwell</p>
+      </div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <!-- Book Section -->
+        <div class="book-section">
+          <h2>Featured Book</h2>
+          <div class="book-info">
+            <h3>HTML CSS</h3>
+            <p class="author">Author: Thomas A. Fuwell</p>
+            <div class="book-image">
+              <img
+                src="images/image1_bok_html.jpg"
+                alt="HTML CSS Book Cover"
+                width="300"
+                height="300"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="contact-section">
+          <h2>Send us a Message</h2>
+          <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Enter your name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                placeholder="What is this about?"
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Write your message here..."
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>📧 Email: thomas.fuwell@bookpublisher.com</p>
+            <p>📱 Phone: +1 (555) 123-4567</p>
+            <p>🏢 Publisher: Tech Books Inc.</p>
+            <p>📍 Address: 123 Web Dev Street, Code City, CA 94000</p>
+            <p>⏰ Business Hours: Mon-Fri, 9AM-5PM PST</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
 

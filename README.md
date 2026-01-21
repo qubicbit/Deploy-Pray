@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 # Deploy-Pray
-=======
-#
+
 # Simple HTML Website
 
 A basic 5-page HTML website project.
@@ -44,4 +42,3 @@ All images are stored in the `images/` folder:
 - Works in any modern web browser
 - No CSS styling (plain HTML only)
 
->>>>>>> c70df3d (först coomit)
